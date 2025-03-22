@@ -39,11 +39,9 @@ model.fit(
 model_weights = model.layers[0].get_weights()
 # print(f"W: {model_weights[0][0,0]}, b: {model_weights[1][0]}")
 
-y0 = model_weights[0][0,0]*X.min() + model_weights[1][0]
-y1 = model_weights[0][0,0]*X.max() + model_weights[1][0]
-y_points =  np.array([y0,y1])
-x_points = np.array([X.min(),X.max()])
-plt.plot(x_points, y_points, color='r', label="prediction")
+Y_hat = model.predict(X).flatten()
+
+plt.plot(X,Y_hat, color='r', label="prediction")
 plt.legend()
 plt.title(f"W: {model_weights[0][0,0]}, b: {model_weights[1][0]}")
 plt.show()
