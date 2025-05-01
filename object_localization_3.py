@@ -46,7 +46,7 @@ model.compile(
 model.fit(
     img_gen(50,32),
     steps_per_epoch=50,
-    epochs=3
+    epochs=5
 )
 
 def plot_predictions():
